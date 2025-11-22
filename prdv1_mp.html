@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semilla Feliz - User Journey, Mapa de Procesos y BPMN</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #2196F3;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2196F3;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #FF9800;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+            page-break-inside: avoid;
+        }
+        
+        .diagram-container {
+            background: #fafafa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .mermaid {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .description {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 5px solid #2196F3;
+        }
+        
+        .description h4 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+        
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .description li {
+            margin: 5px 0;
+        }
+        
+        .user-journey-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .user-journey-table th {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .user-journey-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .user-journey-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .user-journey-table tr:hover {
+            background: #f0f0f0;
+        }
+        
+        .stage {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .touchpoint {
+            color: #2196F3;
+        }
+        
+        .emotion {
+            color: #FF9800;
+        }
+        
+        .opportunity {
+            color: #9C27B0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+        
+        @media print {
+            .section {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Semilla Feliz</h1>
+        <p class="subtitle">User Journey, Mapa de Procesos y Diagramas BPMN<br>
+        Plataforma Digital Integrada Híbrida - PRD v1.0</p>
+        
+        <!-- USER JOURNEY -->
+        <div class="section">
+            <h2>1. User Journey - Viaje del Usuario</h2>
+            
+            <div class="description">
+                <h4>Descripción del User Journey</h4>
+                <p>El User Journey representa el viaje completo de un padre/madre desde que descubre Semilla Feliz hasta que se convierte en cliente activo y referidor. Este viaje integra tanto canales digitales como presenciales, reflejando el modelo híbrido del centro.</p>
+            </div>
+            
+            <div class="diagram-container">
+                <div class="mermaid">
+journey
+    title User Journey - Semilla Feliz
+    section Descubrimiento
+        Busca información sobre estimulación temprana: 3: Usuario
+        Encuentra Semilla Feliz en Google/Redes Sociales: 4: Usuario
+        Visita el sitio web: 5: Usuario
+        Lee sobre los 4 pilares del desarrollo: 4: Usuario
+    section Investigación
+        Explora programas y talleres: 5: Usuario
+        Revisa precios y horarios: 4: Usuario
+        Lee testimonios de otros padres: 5: Usuario
+        Consulta el blog y recursos: 4: Usuario
+    section Contacto Inicial
+        Completa formulario de contacto: 3: Usuario
+        Recibe llamada/WhatsApp del centro: 4: Usuario, Centro
+        Agenda consulta informativa: 5: Usuario, Centro
+    section Consulta y Evaluación
+        Visita el centro físico: 5: Usuario, Centro
+        Conoce las instalaciones: 5: Usuario
+        Reunión con coordinadora: 4: Usuario, Centro
+        Evaluación inicial del niño: 3: Usuario, Centro
+        Recibe propuesta personalizada: 5: Usuario, Centro
+    section Inscripción
+        Revisa propuesta y precios: 4: Usuario
+        Selecciona programa/talleres: 5: Usuario
+        Completa inscripción online: 4: Usuario
+        Realiza pago inicial: 3: Usuario
+        Recibe confirmación y credenciales: 5: Usuario, Centro
+    section Onboarding
+        Accede al portal para padres: 4: Usuario
+        Completa perfil del niño: 3: Usuario
+        Recibe bienvenida y guía: 5: Usuario, Centro
+        Agenda primera sesión: 4: Usuario, Centro
+    section Primera Experiencia
+        Asiste a primera sesión: 5: Usuario, Niño, Centro
+        Niño participa en actividades: 5: Niño
+        Padres observan la metodología: 4: Usuario
+        Recibe feedback inicial: 5: Usuario, Centro
+    section Uso Continuo
+        Asiste regularmente a sesiones: 5: Usuario, Niño
+        Revisa reportes en portal: 4: Usuario
+        Recibe recursos para casa: 5: Usuario
+        Comunica con especialistas: 4: Usuario, Centro
+        Observa progreso del niño: 5: Usuario
+    section Seguimiento
+        Recibe reportes trimestrales: 5: Usuario, Centro
+        Participa en reuniones de seguimiento: 4: Usuario, Centro
+        Recibe recomendaciones personalizadas: 5: Usuario, Centro
+        Ajusta programa según necesidades: 4: Usuario, Centro
+    section Fidelización
+        Renueva inscripción: 5: Usuario
+        Inscribe a segundo hijo: 5: Usuario
+        Participa en talleres para padres: 4: Usuario
+        Recomienda a otros padres: 5: Usuario
+                </div>
+            </div>
+            
+            <h3>Tabla Detallada del User Journey</h3>
+            <table class="user-journey-table">
+                <thead>
+                    <tr>
+                        <th>Etapa</th>
+                        <th>Touchpoint</th>
+                        <th>Acción del Usuario</th>
+                        <th>Emoción</th>
+                        <th>Oportunidades</th>
+                        <th>Dolor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="stage">1. Descubrimiento</td>
+                        <td class="touchpoint">Google, Redes Sociales, Referido</td>
+                        <td>Busca información sobre estimulación temprana para su hijo</td>
+                        <td class="emotion">Curiosidad, Preocupación</td>
+                        <td class="opportunity">SEO optimizado, Contenido educativo, Testimonios visibles</td>
+                        <td>Demasiada información, no sabe qué elegir</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">2. Investigación</td>
+                        <td class="touchpoint">Sitio Web, Blog, Redes Sociales</td>
+                        <td>Explora programas, precios, metodología, testimonios</td>
+                        <td class="emotion">Interés, Esperanza</td>
+                        <td class="opportunity">Información clara, Comparador de programas, Calculadora de precios</td>
+                        <td>Información confusa, precios poco claros</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">3. Contacto Inicial</td>
+                        <td class="touchpoint">Formulario Web, WhatsApp, Teléfono</td>
+                        <td>Completa formulario o llama para más información</td>
+                        <td class="emotion">Expectativa, Ansiedad</td>
+                        <td class="opportunity">Respuesta rápida (<24h), Chat en vivo, WhatsApp Business</td>
+                        <td>No recibe respuesta, espera larga</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">4. Consulta y Evaluación</td>
+                        <td class="touchpoint">Centro Físico, Videollamada</td>
+                        <td>Visita el centro, conoce instalaciones, evalúa al niño</td>
+                        <td class="emotion">Nerviosismo, Esperanza</td>
+                        <td class="opportunity">Tour guiado, Evaluación profesional, Propuesta personalizada</td>
+                        <td>Instalaciones no adecuadas, falta de profesionalismo</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">5. Inscripción</td>
+                        <td class="touchpoint">Portal Web, Centro Físico</td>
+                        <td>Selecciona programa, completa datos, realiza pago</td>
+                        <td class="emotion">Decisión, Compromiso</td>
+                        <td class="opportunity">Proceso simple, Múltiples formas de pago, Descuentos claros</td>
+                        <td>Proceso complicado, problemas de pago</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">6. Onboarding</td>
+                        <td class="touchpoint">Portal para Padres, Email, WhatsApp</td>
+                        <td>Accede al portal, completa perfil, recibe bienvenida</td>
+                        <td class="emotion">Entusiasmo, Confusión inicial</td>
+                        <td class="opportunity">Tutorial interactivo, Guía paso a paso, Soporte dedicado</td>
+                        <td>Portal difícil de usar, falta de guía</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">7. Primera Experiencia</td>
+                        <td class="touchpoint">Centro Físico, Sesión Presencial</td>
+                        <td>Asiste a primera sesión con su hijo</td>
+                        <td class="emotion">Nerviosismo, Expectativa</td>
+                        <td class="opportunity">Bienvenida especial, Observación guiada, Feedback inmediato</td>
+                        <td>Niño no se adapta, metodología no clara</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">8. Uso Continuo</td>
+                        <td class="touchpoint">Centro Físico, Portal Digital, App</td>
+                        <td>Asiste regularmente, revisa reportes, usa recursos</td>
+                        <td class="emotion">Satisfacción, Confianza</td>
+                        <td class="opportunity">Reportes detallados, Recursos personalizados, Comunicación constante</td>
+                        <td>Falta de seguimiento, comunicación limitada</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">9. Seguimiento</td>
+                        <td class="touchpoint">Portal, Reuniones, Reportes</td>
+                        <td>Recibe reportes, participa en reuniones, ajusta programa</td>
+                        <td class="emotion">Tranquilidad, Confianza</td>
+                        <td class="opportunity">Reportes visuales, Reuniones programadas, Ajustes flexibles</td>
+                        <td>Reportes poco claros, falta de personalización</td>
+                    </tr>
+                    <tr>
+                        <td class="stage">10. Fidelización</td>
+                        <td class="touchpoint">Todos los canales</td>
+                        <td>Renueva, inscribe otro hijo, recomienda</td>
+                        <td class="emotion">Lealtad, Orgullo</td>
+                        <td class="opportunity">Programa de referidos, Descuentos por renovación, Comunidad</td>
+                        <td>Falta de incentivos, experiencia no memorable</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- MAPA DE PROCESOS -->
+        <div class="section">
+            <h2>2. Mapa de Procesos del Negocio</h2>
+            
+            <div class="description">
+                <h4>Descripción del Mapa de Procesos</h4>
+                <p>El mapa de procesos muestra los procesos principales del negocio de Semilla Feliz, desde la captación de clientes hasta la entrega del servicio y seguimiento. Incluye procesos tanto operativos como de soporte.</p>
+            </div>
+            
+            <div class="diagram-container">
+                <div class="mermaid">
+graph TB
+    subgraph "PROCESOS ESTRATÉGICOS"
+        A1[Planificación Estratégica]
+        A2[Gestión de Calidad]
+        A3[Desarrollo de Programas]
+    end
+    
+    subgraph "PROCESOS OPERATIVOS PRINCIPALES"
+        B1[Proceso de Marketing y Captación]
+        B2[Proceso de Inscripción]
+        B3[Proceso de Evaluación Inicial]
+        B4[Proceso de Sesión de Estimulación/Taller]
+        B5[Proceso de Seguimiento y Evaluación]
+        B6[Proceso de Comunicación con Padres]
+        B7[Proceso de Renovación]
+    end
+    
+    subgraph "PROCESOS DE SOPORTE"
+        C1[Gestión de Personal]
+        C2[Gestión Financiera]
+        C3[Gestión de Infraestructura]
+        C4[Soporte Tecnológico]
+        C5[Gestión Administrativa]
+    end
+    
+    A1 --> B1
+    A2 --> B4
+    A3 --> B4
+    
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> B5
+    B5 --> B6
+    B6 --> B7
+    B7 --> B4
+    
+    C1 --> B4
+    C2 --> B2
+    C2 --> B7
+    C3 --> B4
+    C4 --> B2
+    C4 --> B6
+    C5 --> B2
+    C5 --> B4
+    
+    style A1 fill:#4CAF50
+    style A2 fill:#4CAF50
+    style A3 fill:#4CAF50
+    style B1 fill:#2196F3
+    style B2 fill:#2196F3
+    style B3 fill:#2196F3
+    style B4 fill:#2196F3
+    style B5 fill:#2196F3
+    style B6 fill:#2196F3
+    style B7 fill:#2196F3
+    style C1 fill:#FF9800
+    style C2 fill:#FF9800
+    style C3 fill:#FF9800
+    style C4 fill:#FF9800
+    style C5 fill:#FF9800
+                </div>
+            </div>
+            
+            <h3>Descripción de Procesos Principales</h3>
+            
+            <div class="description">
+                <h4>1. Proceso de Marketing y Captación</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Atraer y captar nuevos clientes potenciales</li>
+                    <li><strong>Actividades:</strong> Marketing digital, redes sociales, SEO, referidos, alianzas</li>
+                    <li><strong>Resultado:</strong> Leads calificados interesados en los servicios</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>2. Proceso de Inscripción</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Convertir leads en clientes inscritos</li>
+                    <li><strong>Actividades:</strong> Consulta informativa, evaluación, propuesta, inscripción, pago</li>
+                    <li><strong>Resultado:</strong> Cliente inscrito con programa asignado</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>3. Proceso de Evaluación Inicial</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Evaluar el desarrollo actual del niño en los 4 pilares</li>
+                    <li><strong>Actividades:</strong> Evaluación multidisciplinaria, análisis, plan personalizado</li>
+                    <li><strong>Resultado:</strong> Plan de trabajo personalizado</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>4. Proceso de Sesión de Estimulación/Taller</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Ejecutar sesiones que integren los 4 pilares del desarrollo</li>
+                    <li><strong>Actividades:</strong> Preparación, ejecución, observación, registro, cierre</li>
+                    <li><strong>Resultado:</strong> Sesión completada con registro de progreso</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>5. Proceso de Seguimiento y Evaluación</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Monitorear el progreso del niño y ajustar el programa</li>
+                    <li><strong>Actividades:</strong> Evaluaciones periódicas, reportes, análisis, ajustes</li>
+                    <li><strong>Resultado:</strong> Reportes de progreso y ajustes al programa</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>6. Proceso de Comunicación con Padres</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Mantener comunicación constante y transparente</li>
+                    <li><strong>Actividades:</strong> Reportes, mensajería, reuniones, recursos</li>
+                    <li><strong>Resultado:</strong> Padres informados y comprometidos</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>7. Proceso de Renovación</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Retener clientes y fomentar continuidad</li>
+                    <li><strong>Actividades:</strong> Evaluación de satisfacción, propuesta de renovación, pago</li>
+                    <li><strong>Resultado:</strong> Cliente renovado o referido</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- BPMN DIAGRAMS -->
+        <div class="section">
+            <h2>3. Diagramas BPMN - Procesos de Negocio</h2>
+            
+            <h3>3.1 Proceso de Inscripción</h3>
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    Start([Padre busca información]) --> A{Contacta al centro?}
+    A -->|Formulario Web| B[Recibe formulario]
+    A -->|WhatsApp/Teléfono| C[Atiende llamada]
+    B --> D[Registra lead en CRM]
+    C --> D
+    D --> E[Coordinadora contacta en <24h]
+    E --> F{Padre interesado?}
+    F -->|No| End1([Lead descartado])
+    F -->|Sí| G[Agenda consulta informativa]
+    G --> H[Realiza consulta presencial/virtual]
+    H --> I[Presenta instalaciones y metodología]
+    I --> J[Evalúa necesidades del niño]
+    J --> K{Padre decide inscribir?}
+    K -->|No| End2([No inscripción])
+    K -->|Sí| L[Prepara propuesta personalizada]
+    L --> M[Envía propuesta con precios]
+    M --> N{Padre acepta propuesta?}
+    N -->|No| O[Negocia condiciones]
+    O --> N
+    N -->|Sí| P[Completa formulario de inscripción]
+    P --> Q[Sube documentos requeridos]
+    Q --> R[Selecciona forma de pago]
+    R --> S{Realiza pago?}
+    S -->|No| T[Envía recordatorio]
+    T --> S
+    S -->|Sí| U[Registra pago en sistema]
+    U --> V[Genera credenciales de acceso]
+    V --> W[Envía email de bienvenida]
+    W --> X[Activa acceso al portal]
+    X --> Y[Asigna especialista]
+    Y --> Z[Agenda primera sesión]
+    Z --> End3([Inscripción completada])
+    
+    style Start fill:#4CAF50
+    style End1 fill:#f44336
+    style End2 fill:#f44336
+    style End3 fill:#4CAF50
+                </div>
+            </div>
+            
+            <h3>3.2 Proceso de Sesión de Estimulación/Taller</h3>
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    Start([Inicio de sesión programada]) --> A[Especialista prepara materiales]
+    A --> B[Revisa plan de trabajo del niño]
+    B --> C[Padre y niño llegan al centro]
+    C --> D[Registra asistencia en sistema]
+    D --> E[Especialista recibe al niño]
+    E --> F[Inicia sesión con bienvenida]
+    F --> G[Ejecuta actividades planificadas]
+    
+    G --> H1[Actividad Cognitiva]
+    G --> H2[Actividad Psicológica]
+    G --> H3[Actividad Pedagógica]
+    G --> H4[Actividad Física]
+    
+    H1 --> I[Observa y registra desempeño]
+    H2 --> I
+    H3 --> I
+    H4 --> I
+    
+    I --> J{Se completa plan de sesión?}
+    J -->|No| G
+    J -->|Sí| K[Realiza cierre de sesión]
+    K --> L[Registra observaciones en sistema]
+    L --> M[Actualiza progreso por pilar]
+    M --> N{Requiere ajuste de plan?}
+    N -->|Sí| O[Coordina con equipo multidisciplinario]
+    O --> P[Actualiza plan de trabajo]
+    P --> Q[Entrega feedback a padre]
+    N -->|No| Q
+    Q --> R[Padre y niño se retiran]
+    R --> S[Especialista completa registro]
+    S --> T[Genera nota de sesión]
+    T --> U[Actualiza portal para padres]
+    U --> End([Sesión completada])
+    
+    style Start fill:#4CAF50
+    style End fill:#4CAF50
+    style H1 fill:#2196F3
+    style H2 fill:#FF9800
+    style H3 fill:#9C27B0
+    style H4 fill:#4CAF50
+                </div>
+            </div>
+            
+            <h3>3.3 Proceso de Seguimiento y Evaluación del Desarrollo</h3>
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    Start([Inicio de período de evaluación]) --> A{Es evaluación trimestral?}
+    A -->|Sí| B[Coordinadora programa evaluación]
+    A -->|No| C[Evaluación continua en sesiones]
+    
+    B --> D[Especialistas realizan evaluaciones]
+    D --> E1[Evaluación Cognitiva]
+    D --> E2[Evaluación Psicológica]
+    D --> E3[Evaluación Pedagógica]
+    D --> E4[Evaluación Física]
+    
+    E1 --> F[Consolida resultados]
+    E2 --> F
+    E3 --> F
+    E4 --> F
+    
+    F --> G[Analiza progreso por pilar]
+    G --> H[Compara con hitos esperados]
+    H --> I{Progreso adecuado?}
+    I -->|Sí| J[Genera reporte positivo]
+    I -->|No| K[Identifica áreas de mejora]
+    K --> L[Propone ajustes al programa]
+    L --> M[Coordina con equipo]
+    M --> N[Actualiza plan de trabajo]
+    N --> O[Prepara reporte detallado]
+    J --> O
+    O --> P[Publica reporte en portal]
+    P --> Q[Notifica a padres]
+    Q --> R[Agenda reunión de seguimiento]
+    R --> S{Padres asisten a reunión?}
+    S -->|Sí| T[Presenta resultados]
+    T --> U[Explica recomendaciones]
+    U --> V{Padres aprueban ajustes?}
+    V -->|Sí| W[Implementa ajustes]
+    V -->|No| X[Discute alternativas]
+    X --> V
+    W --> Y[Actualiza programa]
+    S -->|No| Z[Envía reporte por email]
+    Z --> Y
+    Y --> End([Proceso completado])
+    C --> End
+    
+    style Start fill:#4CAF50
+    style End fill:#4CAF50
+    style E1 fill:#2196F3
+    style E2 fill:#FF9800
+    style E3 fill:#9C27B0
+    style E4 fill:#4CAF50
+                </div>
+            </div>
+            
+            <h3>3.4 Proceso de Comunicación con Padres</h3>
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    Start([Inicio de comunicación]) --> A{Tipo de comunicación?}
+    
+    A -->|Reporte de sesión| B[Especialista completa sesión]
+    B --> C[Genera nota de sesión]
+    C --> D[Publica en portal]
+    D --> E[Envía notificación push/email]
+    E --> End1([Padre recibe información])
+    
+    A -->|Consulta del padre| F[Padre envía mensaje]
+    F --> G{Mensaje recibido en?}
+    G -->|Portal| H[Sistema notifica a especialista]
+    G -->|WhatsApp| I[Coordinadora recibe]
+    G -->|Email| J[Administración recibe]
+    
+    H --> K[Especialista revisa consulta]
+    I --> L[Deriva a especialista correspondiente]
+    J --> L
+    L --> K
+    K --> M{Requiere respuesta inmediata?}
+    M -->|Sí| N[Responde en <2 horas]
+    M -->|No| O[Responde en <24 horas]
+    N --> P[Registra comunicación]
+    O --> P
+    P --> End2([Padre recibe respuesta])
+    
+    A -->|Reporte trimestral| Q[Genera reporte consolidado]
+    Q --> R[Publica en portal]
+    R --> S[Envía email con resumen]
+    S --> T[Notifica disponibilidad]
+    T --> End3([Padre accede a reporte])
+    
+    A -->|Recursos para casa| U[Especialista identifica necesidad]
+    U --> V[Selecciona recursos apropiados]
+    V --> W[Personaliza según niño]
+    W --> X[Publica en portal del niño]
+    X --> Y[Notifica a padre]
+    Y --> End4([Padre accede a recursos])
+    
+    style Start fill:#4CAF50
+    style End1 fill:#4CAF50
+    style End2 fill:#4CAF50
+    style End3 fill:#4CAF50
+    style End4 fill:#4CAF50
+                </div>
+            </div>
+            
+            <h3>3.5 Proceso de Pago y Facturación</h3>
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    Start([Inicio de período de facturación]) --> A[Sistema genera factura mensual]
+    A --> B[Calcula monto según programa]
+    B --> C{Aplica descuentos?}
+    C -->|Sí| D[Calcula descuentos]
+    C -->|No| E[Factura monto completo]
+    D --> E
+    E --> F[Genera factura electrónica]
+    F --> G[Envía factura por email]
+    G --> H[Publica en portal del padre]
+    H --> I[Envía recordatorio de pago]
+    I --> J{Padre realiza pago?}
+    J -->|Sí| K{Método de pago?}
+    J -->|No| L[Envía recordatorio adicional]
+    L --> M{Padre paga en plazo?}
+    M -->|Sí| K
+    M -->|No| N[Contacta personalmente]
+    N --> O{Negocia plan de pago?}
+    O -->|Sí| P[Acuerda cuotas]
+    O -->|No| Q[Suspende servicios]
+    P --> K
+    
+    K -->|Online| R[Procesa pago en plataforma]
+    K -->|Transferencia| S[Verifica depósito]
+    K -->|Yape/Plin| T[Verifica pago digital]
+    K -->|Efectivo| U[Registra pago en caja]
+    
+    R --> V[Confirma pago recibido]
+    S --> V
+    T --> V
+    U --> V
+    
+    V --> W[Actualiza estado en sistema]
+    W --> X[Envía comprobante de pago]
+    X --> Y[Actualiza portal del padre]
+    Y --> Z[Registra en contabilidad]
+    Z --> End([Pago procesado])
+    Q --> End2([Servicio suspendido])
+    
+    style Start fill:#4CAF50
+    style End fill:#4CAF50
+    style End2 fill:#f44336
+                </div>
+            </div>
+            
+            <h3>3.6 Proceso de Evaluación Inicial del Niño</h3>
+            <div class="diagram-container">
+                <div class="mermaid">
+flowchart TD
+    Start([Niño inscrito]) --> A[Coordinadora asigna evaluadores]
+    A --> B[Agenda evaluación multidisciplinaria]
+    B --> C[Notifica a padres fecha/hora]
+    C --> D[Padres y niño asisten]
+    D --> E[Recepción y bienvenida]
+    E --> F[Inicia evaluación]
+    
+    F --> G1[Evaluación Cognitiva<br/>Psicóloga del Desarrollo]
+    F --> G2[Evaluación Psicológica<br/>Psicóloga Clínica]
+    F --> G3[Evaluación Pedagógica<br/>Coordinadora Pedagógica]
+    F --> G4[Evaluación Física<br/>Terapeuta Ocupacional]
+    
+    G1 --> H1[Registra observaciones]
+    G2 --> H2[Registra observaciones]
+    G3 --> H3[Registra observaciones]
+    G4 --> H4[Registra observaciones]
+    
+    H1 --> I[Consolida resultados]
+    H2 --> I
+    H3 --> I
+    H4 --> I
+    
+    I --> J[Equipo multidisciplinario analiza]
+    J --> K[Identifica fortalezas]
+    K --> L[Identifica áreas de desarrollo]
+    L --> M[Define objetivos por pilar]
+    M --> N[Diseña plan de trabajo personalizado]
+    N --> O[Asigna especialistas]
+    O --> P[Define frecuencia de sesiones]
+    P --> Q[Prepara propuesta final]
+    Q --> R[Presenta resultados a padres]
+    R --> S{Padres aprueban plan?}
+    S -->|No| T[Discute ajustes]
+    T --> N
+    S -->|Sí| U[Registra plan en sistema]
+    U --> V[Publica en portal de padres]
+    V --> W[Agenda primera sesión]
+    W --> End([Evaluación completada])
+    
+    style Start fill:#4CAF50
+    style End fill:#4CAF50
+    style G1 fill:#2196F3
+    style G2 fill:#FF9800
+    style G3 fill:#9C27B0
+    style G4 fill:#4CAF50
+                </div>
+            </div>
+        </div>
+        
+        <!-- RESUMEN -->
+        <div class="section">
+            <h2>4. Resumen y Consideraciones</h2>
+            
+            <div class="description">
+                <h4>Integración de los 4 Pilares en los Procesos</h4>
+                <p>Todos los procesos están diseñados para integrar los cuatro pilares del desarrollo (Cognitivo, Psicológico, Pedagógico y Físico):</p>
+                <ul>
+                    <li><strong>Cognitivo (Azul):</strong> Evaluaciones, actividades y seguimiento del desarrollo cognitivo</li>
+                    <li><strong>Psicológico (Naranja):</strong> Bienestar emocional, autoestima y habilidades sociales</li>
+                    <li><strong>Pedagógico (Morado):</strong> Aprendizaje significativo y preparación escolar</li>
+                    <li><strong>Físico (Verde):</strong> Desarrollo motor, coordinación y salud física</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>Canales de Interacción</h4>
+                <p>Los procesos integran múltiples canales para facilitar la comunicación:</p>
+                <ul>
+                    <li><strong>Presencial:</strong> Centro físico, sesiones, reuniones</li>
+                    <li><strong>Digital:</strong> Portal web, email, WhatsApp, notificaciones push</li>
+                    <li><strong>Híbrido:</strong> Combinación de ambos según necesidad</li>
+                </ul>
+            </div>
+            
+            <div class="description">
+                <h4>Mejora Continua</h4>
+                <p>Todos los procesos incluyen mecanismos de:</p>
+                <ul>
+                    <li>Registro y análisis de datos</li>
+                    <li>Feedback de usuarios</li>
+                    <li>Evaluación de resultados</li>
+                    <li>Ajustes y optimizaciones</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Semilla Feliz - PRD v1.0</strong></p>
+            <p>User Journey, Mapa de Procesos y Diagramas BPMN</p>
+            <p>Documento generado: [Fecha]</p>
+        </div>
+    </div>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            journey: {
+                useMaxWidth: true
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Semilla Feliz - Centro de Estimulación Temprana y Talleres para Niños en Lima, Perú. Desarrollo integral: Cognitivo, Psicológico, Pedagógico y Físico.">
+    <title>Semilla Feliz - Centro de Estimulación Temprana | Lima, Perú</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colores principales según brief */
+            --color-primary: #4CAF50; /* Verde - crecimiento */
+            --color-secondary: #FFC107; /* Amarillo - alegría */
+            --color-accent: #FF9800; /* Naranja - calidez */
+            --color-blue: #2196F3; /* Azul - confianza */
+            
+            /* Colores secundarios */
+            --color-green-light: #81C784;
+            --color-yellow-light: #FFF176;
+            --color-orange-light: #FFB74D;
+            --color-blue-light: #64B5F6;
+            
+            /* Colores neutros */
+            --color-white: #FFFFFF;
+            --color-gray-light: #F5F5F5;
+            --color-gray: #9E9E9E;
+            --color-gray-dark: #424242;
+            --color-black: #212121;
+            
+            /* Sombras */
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            
+            /* Espaciado */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--color-gray-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Header y Navegación */
+        header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--color-black);
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            animation: grow 2s ease-in-out infinite;
+        }
+
+        @keyframes grow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-green-light));
+            color: var(--color-white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--color-white);
+            color: var(--color-primary);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-primary);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #E8F5E9 0%, #FFF9C4 50%, #FFE0B2 100%);
+            padding: var(--spacing-xl) 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--color-gray-dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-image svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Sección de 4 Pilares */
+        .pillars {
+            padding: var(--spacing-xl) 2rem;
+            background: var(--color-white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pillars-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-top: 5px solid;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pillar-card.cognitive {
+            border-color: var(--color-blue);
+        }
+
+        .pillar-card.psychological {
+            border-color: var(--color-accent);
+        }
+
+        .pillar-card.pedagogical {
+            border-color: #9C27B0;
+        }
+
+        .pillar-card.physical {
+            border-color: var(--color-primary);
+        }
+
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-green-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .pillar-card.cognitive .pillar-icon {
+            background: linear-gradient(135deg, var(--color-blue), var(--color-blue-light));
+        }
+
+        .pillar-card.psychological .pillar-icon {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-orange-light));
+        }
+
+        .pillar-card.pedagogical .pillar-icon {
+            background: linear-gradient(135deg, #9C27B0, #BA68C8);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-gray-dark);
+        }
+
+        .pillar-card p {
+            color: var(--color-gray);
+            line-height: 1.6;
+        }
+
+        /* Programas Section */
+        .programs {
+            padding: var(--spacing-xl) 2rem;
+            background: linear-gradient(135deg, #F5F5F5 0%, #E8F5E9 100%);
+        }
+
+        .programs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-card h3 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-card .age-badge {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            color: var(--color-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features li {
+            padding: 0.5rem 0;
+            color: var(--color-gray-dark);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* Testimonios */
+        .testimonials {
+            padding: var(--spacing-xl) 2rem;
+            background: var(--color-white);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFE0B2 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-card .stars {
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card p {
+            color: var(--color-gray-dark);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: bold;
+        }
+
+        /* Contacto */
+        .contact {
+            padding: var(--spacing-xl) 2rem;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-green-light) 100%);
+            color: var(--color-white);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-gray-dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--color-gray-light);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-gray-dark);
+            color: var(--color-white);
+            padding: var(--spacing-lg) 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--color-gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--color-white);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pillars-grid,
+            .programs-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animaciones de scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#inicio" class="logo-container">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Semilla -->
+                    <ellipse cx="50" cy="70" rx="15" ry="20" fill="#8B4513" />
+                    <!-- Hojas -->
+                    <path d="M 50 50 Q 35 30 20 40 Q 30 50 35 60 Q 40 55 50 50" fill="#4CAF50" />
+                    <path d="M 50 50 Q 65 30 80 40 Q 70 50 65 60 Q 60 55 50 50" fill="#81C784" />
+                    <!-- Sonrisa -->
+                    <path d="M 40 75 Q 50 80 60 75" stroke="#FFC107" stroke-width="3" fill="none" stroke-linecap="round" />
+                    <!-- Ojos -->
+                    <circle cx="45" cy="65" r="3" fill="#FFC107" />
+                    <circle cx="55" cy="65" r="3" fill="#FFC107" />
+                </svg>
+                <span class="logo-text">Semilla Feliz</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#pilares">4 Pilares</a></li>
+                <li><a href="#programas">Programas</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#contacto" class="btn-primary">Inscríbete</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Desarrollo Integral para tus Pequeños</h1>
+                <p class="subtitle">Estimulación Temprana y Talleres Especializados</p>
+                <p>En Semilla Feliz cultivamos el crecimiento de tus hijos con un enfoque único que integra lo cognitivo, psicológico, pedagógico y físico. Cada niño es una semilla única que florece a su ritmo.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">Agenda una Consulta</a>
+                    <a href="#programas" class="btn-secondary">Ver Programas</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cielo -->
+                    <rect width="500" height="500" fill="#E3F2FD" />
+                    <!-- Sol -->
+                    <circle cx="400" cy="100" r="60" fill="#FFC107" />
+                    <!-- Nubes -->
+                    <ellipse cx="100" cy="80" rx="40" ry="25" fill="#FFFFFF" opacity="0.8" />
+                    <ellipse cx="130" cy="80" rx="35" ry="20" fill="#FFFFFF" opacity="0.8" />
+                    <!-- Árbol -->
+                    <rect x="200" y="300" width="30" height="100" fill="#8B4513" />
+                    <circle cx="215" cy="280" r="50" fill="#4CAF50" />
+                    <!-- Semillas felices -->
+                    <g transform="translate(150, 350)">
+                        <ellipse cx="0" cy="0" rx="8" ry="12" fill="#8B4513" />
+                        <path d="M 0 -5 Q -8 -15 -15 -8 Q -8 -5 -5 0 Q -3 -2 0 -5" fill="#4CAF50" />
+                        <path d="M 0 -5 Q 8 -15 15 -8 Q 8 -5 5 0 Q 3 -2 0 -5" fill="#81C784" />
+                        <path d="M -5 5 Q 0 8 5 5" stroke="#FFC107" stroke-width="1.5" fill="none" />
+                        <circle cx="-3" cy="0" r="1.5" fill="#FFC107" />
+                        <circle cx="3" cy="0" r="1.5" fill="#FFC107" />
+                    </g>
+                    <g transform="translate(350, 380)">
+                        <ellipse cx="0" cy="0" rx="8" ry="12" fill="#8B4513" />
+                        <path d="M 0 -5 Q -8 -15 -15 -8 Q -8 -5 -5 0 Q -3 -2 0 -5" fill="#4CAF50" />
+                        <path d="M 0 -5 Q 8 -15 15 -8 Q 8 -5 5 0 Q 3 -2 0 -5" fill="#81C784" />
+                        <path d="M -5 5 Q 0 8 5 5" stroke="#FFC107" stroke-width="1.5" fill="none" />
+                        <circle cx="-3" cy="0" r="1.5" fill="#FFC107" />
+                        <circle cx="3" cy="0" r="1.5" fill="#FFC107" />
+                    </g>
+                    <!-- Pasto -->
+                    <rect x="0" y="400" width="500" height="100" fill="#81C784" />
+                    <!-- Texto decorativo -->
+                    <text x="250" y="450" font-family="Arial" font-size="24" fill="#4CAF50" text-anchor="middle" font-weight="bold">¡Creciendo Juntos!</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4 Pilares -->
+    <section class="pillars" id="pilares">
+        <h2 class="section-title fade-in">Nuestros 4 Pilares del Desarrollo</h2>
+        <p class="section-subtitle fade-in">Cada actividad integra estos aspectos fundamentales para un crecimiento integral</p>
+        <div class="pillars-grid">
+            <div class="pillar-card cognitive fade-in">
+                <div class="pillar-icon">🧠</div>
+                <h3>Cognitivo</h3>
+                <p>Desarrollamos habilidades de pensamiento, razonamiento, memoria y resolución de problemas a través de actividades estimulantes y desafiantes.</p>
+            </div>
+            <div class="pillar-card psychological fade-in">
+                <div class="pillar-icon">❤️</div>
+                <h3>Psicológico</h3>
+                <p>Fomentamos el bienestar emocional, autoestima, regulación emocional y habilidades sociales para niños felices y seguros.</p>
+            </div>
+            <div class="pillar-card pedagogical fade-in">
+                <div class="pillar-icon">📚</div>
+                <h3>Pedagógico</h3>
+                <p>Facilitamos el aprendizaje significativo, curiosidad y amor por el conocimiento con metodologías activas y proyectos.</p>
+            </div>
+            <div class="pillar-card physical fade-in">
+                <div class="pillar-icon">🏃</div>
+                <h3>Físico</h3>
+                <p>Promovemos el desarrollo motor, coordinación, equilibrio y salud física a través de psicomotricidad y actividades físicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programas -->
+    <section class="programs" id="programas">
+        <h2 class="section-title fade-in">Nuestros Programas</h2>
+        <p class="section-subtitle fade-in">Programas diseñados para cada etapa del desarrollo de tu hijo</p>
+        <div class="programs-grid">
+            <div class="program-card fade-in">
+                <h3>Estimulación Temprana</h3>
+                <span class="age-badge">0-3 años</span>
+                <p>Programa integral para potenciar el desarrollo neurológico, sensorial, motor, cognitivo y social de bebés y niños pequeños.</p>
+                <ul class="program-features">
+                    <li>Desarrollo sensorial completo</li>
+                    <li>Habilidades motoras gruesas y finas</li>
+                    <li>Desarrollo del lenguaje</li>
+                    <li>Interacción social temprana</li>
+                </ul>
+                <a href="#contacto" class="btn-primary">Más Información</a>
+            </div>
+            <div class="program-card fade-in">
+                <h3>Taller de Psicomotricidad</h3>
+                <span class="age-badge">2-6 años</span>
+                <p>Desarrollo de habilidades motoras, coordinación y conciencia corporal integrando aspectos cognitivos, psicológicos y pedagógicos.</p>
+                <ul class="program-features">
+                    <li>Desarrollo motor grueso</li>
+                    <li>Coordinación y equilibrio</li>
+                    <li>Fuerza y resistencia</li>
+                    <li>Confianza en el cuerpo</li>
+                </ul>
+                <a href="#contacto" class="btn-primary">Más Información</a>
+            </div>
+            <div class="program-card fade-in">
+                <h3>Taller de Arte y Creatividad</h3>
+                <span class="age-badge">3-8 años</span>
+                <p>Espacio para explorar diferentes técnicas artísticas, desarrollando creatividad y expresión personal.</p>
+                <ul class="program-features">
+                    <li>Expresión artística</li>
+                    <li>Motricidad fina</li>
+                    <li>Creatividad e innovación</li>
+                    <li>Autoestima y autoconcepto</li>
+                </ul>
+                <a href="#contacto" class="btn-primary">Más Información</a>
+            </div>
+            <div class="program-card fade-in">
+                <h3>Taller de Música y Movimiento</h3>
+                <span class="age-badge">2-6 años</span>
+                <p>Introducción al mundo musical a través del juego, canto, danza y exploración de instrumentos.</p>
+                <ul class="program-features">
+                    <li>Desarrollo musical</li>
+                    <li>Expresión corporal</li>
+                    <li>Coordinación rítmica</li>
+                    <li>Regulación emocional</li>
+                </ul>
+                <a href="#contacto" class="btn-primary">Más Información</a>
+            </div>
+            <div class="program-card fade-in">
+                <h3>Taller de Lectura y Cuentacuentos</h3>
+                <span class="age-badge">3-7 años</span>
+                <p>Fomento del amor por la lectura mediante sesiones interactivas de cuentacuentos y actividades literarias.</p>
+                <ul class="program-features">
+                    <li>Comprensión lectora</li>
+                    <li>Desarrollo del lenguaje</li>
+                    <li>Imaginación y creatividad</li>
+                    <li>Hábitos de lectura</li>
+                </ul>
+                <a href="#contacto" class="btn-primary">Más Información</a>
+            </div>
+            <div class="program-card fade-in">
+                <h3>Taller de Ciencias y Exploración</h3>
+                <span class="age-badge">4-8 años</span>
+                <p>Experimentación y descubrimiento del mundo a través de actividades científicas adaptadas.</p>
+                <ul class="program-features">
+                    <li>Pensamiento científico</li>
+                    <li>Observación y análisis</li>
+                    <li>Curiosidad y asombro</li>
+                    <li>Resolución de problemas</li>
+                </ul>
+                <a href="#contacto" class="btn-primary">Más Información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <h2 class="section-title fade-in">Lo que Dicen los Padres</h2>
+        <p class="section-subtitle fade-in">Testimonios reales de familias que confían en nosotros</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p>"Semilla Feliz ha sido una bendición para nuestra familia. El enfoque integral de los 4 pilares ha hecho que nuestro hijo desarrolle habilidades que nunca imaginamos. Los reportes detallados nos ayudan a entender su progreso."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">MC</div>
+                    <div>
+                        <strong>María Carmen</strong><br>
+                        <small>Mamá de Lucas (3 años)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p>"La plataforma digital es increíble. Puedo ver el progreso de mi hija en tiempo real y los recursos para casa son muy útiles. El equipo es profesional y cariñoso. ¡Totalmente recomendado!"</p>
+                <div class="testimonial-author">
+                    <div class="avatar">JP</div>
+                    <div>
+                        <strong>Juan Pérez</strong><br>
+                        <small>Papá de Sofía (5 años)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p>"Lo que más me gusta es que cada actividad integra todos los aspectos del desarrollo. Mi hijo no solo aprende, sino que también se divierte y crece emocionalmente. El mejor centro de Lima."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">AR</div>
+                    <div>
+                        <strong>Ana Rodríguez</strong><br>
+                        <small>Mamá de Diego (4 años)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <h2 class="section-title" style="color: white;">Contáctanos</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Estamos aquí para ayudarte. Agenda una consulta gratuita</p>
+        <div class="contact-content">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="distrito">Distrito</label>
+                    <input type="text" id="distrito" name="distrito">
+                </div>
+                <div class="form-group">
+                    <label for="interes">Programa de Interés</label>
+                    <select id="interes" name="interes">
+                        <option value="">Selecciona un programa</option>
+                        <option value="estimulacion">Estimulación Temprana</option>
+                        <option value="psicomotricidad">Psicomotricidad</option>
+                        <option value="arte">Arte y Creatividad</option>
+                        <option value="musica">Música y Movimiento</option>
+                        <option value="lectura">Lectura y Cuentacuentos</option>
+                        <option value="ciencias">Ciencias y Exploración</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu hijo y tus expectativas..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Semilla Feliz</h3>
+                <p>Centro de Estimulación Temprana y Talleres para Niños en Lima, Perú. Desarrollo integral desde los primeros años.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#pilares">4 Pilares</a></li>
+                    <li><a href="#programas">Programas</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📍 Lima, Perú</li>
+                    <li>📞 +51 9XX XXX XXX</li>
+                    <li>✉️ contacto@semillafeliz.pe</li>
+                    <li>🕒 Lun-Vie: 8:00 AM - 7:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Semilla Feliz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica de envío del formulario
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 6px rgba(0,0,0,0.2)';
+            } else {
+                header.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
+
